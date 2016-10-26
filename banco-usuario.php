@@ -1,0 +1,13 @@
+<?php
+    function buscaUsuario($conn, $login, $senha){
+        $query = "select * from usuario where login = '{$login}' and senha = '{$senha}'";  
+        $resultado = sqlsrv_query($conn, $query); 
+        $usuario = sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC);
+        return $usuario;
+    }
+//    function buscaUsuario($conn, $login, $senha){
+//        $query = "select * from usuario where login = '{$login}' and senha = '{$senha}'";  
+//        $resultado = sqlsrv_query($conn, $query); 
+//        return sqlsrv_fetch($resultado);
+//    }
+
