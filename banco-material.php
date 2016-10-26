@@ -15,15 +15,14 @@ include 'conecta.php';
 //    return sqlsrv_query($conn, $query);
 //}
 
-//function alteraMaterial($conn, $IdItem, $nome, $preco, $categoria_id){
-//    $query = "update rm_Material set nome = '{$nome}', preco = {$preco}, categoria_id= {$categoria_id} "
-//    . "where id = '{$IdItem}'";
-//    return sqlsrv_query($conn, $query);    
-//}
+function alteraMaterial($conn, $IdItem, $valorUnitario){
+    $query = "update medx.dbo.itemMaterial set valorUnitario = {$valorUnitario} where id = '{$IdItem}'";
+    return sqlsrv_query($conn, $query);    
+}
 
 function buscaMaterial($conn, $IdItem){
-    $query = "select m.id as IdMat, I.id as IdItem, M.nome, M.tipo, I.nSerie ,I.valorUnitario from medx.dbo.material as M join medx.dbo.itemMaterial as I on M.id=I.idMaterial where IdItem = {$IdItem}";
-    $resultado = sqlsrv_query($conn, $query);
+    $query = "select m.id as IdMat, I.id as IdItem, M.nome, M.tipo, I.nSerie ,I.valorUnitario from medx.dbo.material as M INNER JOIN medx.dbo.itemMaterial as I on M.id=I.idMaterial where I.Id = {$IdItem}";
+    $resultado = sqlsrv_query($conn, $query) or die(print_r(sqlsrv_errors()));
     return sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC);
 }
 //

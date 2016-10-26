@@ -2,18 +2,22 @@
  include 'conecta.php';
  include 'banco-material.php';
 
-$id = $_POST['id'];
+$IdMat = $_POST['IdMat'];
+$IdItem = $_POST['IdItem'];
 $nome = $_POST['nome'];
-$preco = $_POST['preco'];
-$categoria_id = $_POST['categoria_id'];
-if(array_key_exists('usado', $_POST)){
-    $usado = "true";
-} else {
-    $usado = "false";
-}
+$tipo = $_POST['tipo'];
+$nSerie = $_POST['nSerie'];
+$valorUnitario = $_POST['valorUnitario'];
 
-if(alteraMaterial($conn, $id, $nome, $preco, $categoria_id)) { ?>
-    <p class="text-success">O Material <?=$nome; ?>, <?=$preco ?> foi alterado.</p>
+
+//if(array_key_exists('usado', $_POST)){
+//    $usado = "true";
+//} else {
+//    $usado = "false";
+//}
+
+if(alteraMaterial($conn, $IdItem, $valorUnitario)) { ?>
+    <p class="text-success">O Material <?=$nome; ?>, <?=$valorUnitario ?> foi alterado.</p>
 <?php } else { 
     $msg = sqlsrv_errors($conn);
     ?>

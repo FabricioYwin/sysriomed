@@ -12,32 +12,33 @@
         <table class="table">
             <tr>            
                 <td>ID MAT:</td>
-                <td><input disabled class="form-control" type="text" name="IdMat"
+                <td><input readonly class="form-control" type="text" name="IdMat"
                            value="<?=$material['IdMat']?>"></td>
             </tr>
             <tr>            
                 <td>ID ITEM:</td>
-                <td><input disabled class="form-control" type="text" name="IdItem"
+                <td><input readonly class="form-control" type="text" name="IdItem"
                            value="<?=$material['IdItem']?>"></td>
             </tr>
+            
             <tr>            
                 <td>NOME:</td>
-                <td><input class="form-control" type="text" name="nome"
-                           value="<?=$material['nome']?>"></td>
+                <td><input readonly class="form-control" type="text" name="nome"
+                           value="<?php echo utf8_encode($material['nome']);?>"></td>
             </tr>
             <tr>            
                 <td>TIPO:</td>
-                <td><input class="form-control" type="text" name="tipo"
-                           value="<?=$material['tipo']?>"></td>
+                <td><input readonly class="form-control" type="text" name="tipo"
+                           value="<?php echo utf8_encode($material['tipo']); ?>"></td>
             </tr>
             <tr>            
                 <td>N. SÉRIE:</td>
-                <td><input class="form-control" type="text" name="nSerie"
-                           value="<?=$material['nSerie']?>"></td>
+                <td><input readonly class="form-control" type="text" name="nSerie"
+                           value="<?php echo utf8_encode($material['nSerie']); ?>"></td>
             </tr>
             <tr>            
                 <td>VALOR UNITÁRIO:</td>
-                <td><input class="form-control" type="text" name="valorUnitario"
+                <td><input class="form-control" type="number" name="valorUnitario"
                            value="<?=$material['valorUnitario']?>"></td>
             
 <!--            <tr>
